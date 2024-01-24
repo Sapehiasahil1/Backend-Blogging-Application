@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sahilsapehia.blog.blogappapis.payloads.ApiResponse;
 import com.sahilsapehia.blog.blogappapis.payloads.UserDto;
 import com.sahilsapehia.blog.blogappapis.services.UserService;
 
@@ -43,10 +44,10 @@ public class UserController {
 
     // DELETE USER
     @DeleteMapping("/{userId}")
-    public ResponseEntity<UserDto> deleteUser(@PathVariable("userId") Integer userId) {
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("userId") Integer userId) {
 
         this.userService.deleteUser(userId);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse("User deleted Successfully", true),HttpStatus.OK);
     }   
 
     // GET ALL USERS
