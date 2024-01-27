@@ -3,6 +3,7 @@ package com.sahilsapehia.blog.blogappapis.services;
 import java.util.List;
 
 import com.sahilsapehia.blog.blogappapis.payloads.PostDto;
+import com.sahilsapehia.blog.blogappapis.payloads.PostResponse;
 
 public interface PostService {
     
@@ -16,7 +17,7 @@ public interface PostService {
     void deletePost(Integer postId);
 
     //getAllPosts
-    List<PostDto> getAllPost();
+    PostResponse getAllPost(Integer pageNumber, Integer pageSize);
 
     //getSinglePost
     PostDto getPostById(Integer postId);
